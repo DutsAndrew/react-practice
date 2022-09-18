@@ -10,6 +10,7 @@ class App extends Component {
       task: { 
         text: '',
         id: uniqid(),
+        taskNumber: 1,
       },
       tasks: [],
     };
@@ -20,6 +21,7 @@ class App extends Component {
       task: {
         text: e.target.value,
         id: this.state.task.id,
+        taskNumber: this.state.task.taskNumber
       }
     });
   }
@@ -31,6 +33,7 @@ class App extends Component {
       task: { 
         text: '',
         id: uniqid(),
+        taskNumber: this.state.task.taskNumber + 1,
       },
     });
   };
@@ -46,7 +49,7 @@ class App extends Component {
           <button type="submit" onClick={this.onSubmit}>Submit Task</button>
         </form>
         <p>Below are your tasks:</p>
-        <Overview tasks={tasks}/>
+        <Overview tasks={tasks} />
       </div>
     );
   }
